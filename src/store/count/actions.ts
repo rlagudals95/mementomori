@@ -11,8 +11,10 @@ export const actions = {
         'x-rapidapi-key': 'SIGN-UP-FOR-KEY'
       }}).then(function (response) {
         console.log(response.data);
-        commit("SET_LIFT",response.data);
-    }).catch(function (error) {
+        commit("SET_LIFE",response.data);
+      }).catch(function (error) {
+        console.log('이거뭐임')
+         commit("SET_LIFE",'axios 확인');
       console.error(error);
     })
   }

@@ -1,8 +1,6 @@
 <template>
   <div>
-
-    <CountDown/>
-    {{this.$store.state.menus}}
+    <!-- <CountDown/> -->
   </div>
 </template>
 
@@ -12,7 +10,6 @@ import CountDown from '../components/Countdown.vue'
 export default {
   name: "home",
   components: {CountDown},
-
 }
 </script>
 

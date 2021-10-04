@@ -1,22 +1,23 @@
 /* eslint-disable*/
 <template>
   <div id="app">
-    <Header/>
+    <Navigation/>
     <router-view />
   </div>
 </template>
 <script>
-import Header from './components/Header.vue';
-import axios from 'axios'
+import Navigation from './components/Navigation.vue';
+
 
 export default {
   name: "app",
-  components: { Header },
+  components: { Navigation },
   created() {
       //console.log('hi');
       //console.log('blogPostsFeed');
       //this.getTime();
   },
+
 
   actions : {
 

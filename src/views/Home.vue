@@ -1,6 +1,6 @@
 <template>
   <div>
-    <!-- <CountDown/> -->
+     <CountDown/>
   </div>
 </template>
 

@@ -8,8 +8,8 @@
 import CountDown from '../components/Countdown.vue'
 
 export default {
-  name: "home",
-  components: {CountDown},
+  name: 'home',
+  components: { CountDown }
 }
 </script>
 

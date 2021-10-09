@@ -1,47 +1,40 @@
 /* eslint-disable*/
 <template>
   <div id="app">
-    <Navigation/>
+    <Navigation />
     <router-view />
   </div>
 </template>
 <script>
-import Navigation from './components/Navigation.vue';
-
+import Navigation from "./components/Navigation.vue";
 
 export default {
   name: "app",
   components: { Navigation },
   created() {
-      //console.log('hi');
-      //console.log('blogPostsFeed');
-      //this.getTime();
+
   },
 
-
-  actions : {
-
-  }
-}
+  actions: {}
+};
 </script>
 
 <style>
-
-*{
+* {
   margin: 0;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap");
 
 #app {
- font-family: 'Noto Sans KR', 'NanumSquare', sans-serif !important;
+  font-family: "Noto Sans KR", "NanumSquare", sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
   width: 100vw;
   height: 100vh;
-  background: url('https://images.unsplash.com/photo-1566041510632-30055e21a9cf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80');
+  background: url("https://images.unsplash.com/photo-1566041510632-30055e21a9cf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80");
   background-repeat: no-repeat;
   background-size: cover;
   object-fit: fit;

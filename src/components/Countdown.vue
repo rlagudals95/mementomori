@@ -11,82 +11,88 @@
   <h1>Sample03 : 종료 케이스
   </h1>
   <h2 id="sample04"></h2> -->
-  <div ref="counttest">ddddd</div>
+  <div ref="countTest">
+      {{this.day}}
+      <br>
+      {{this.hours}}
+      <br>
+      {{this.minutes}}
+      <br>
+      {{this.seconds}}
+      <br>
+      {{this.message}}
+  </div>
 </div>
 </template>
 <script>
-import { mapGetters } from 'vuex';
-import { mapMutations } from 'vuex';
+import { mapGetters, mapMutations } from 'vuex'
 
 export default {
-    name:"countDown",
-    data() {
-        return {
-            countDown : 10,
-            countTest: new Date()
-        }
-    },
-    created() {
-        //this.countDownTimer();
-        this.countTimer();
-        //console.log('hi')
-        //console.log('refs', this.$refs.counttest.focus() );
-    },
-    mounted(){
-         this.countDownTimer('04/01/2024 00:00 AM', this.$refs.counttest.innerText);
-    },
+  name: 'countDown',
+  data () {
+    return {
+      day: 0,
+      hours: 0,
+      minutes: 0,
+      seconds: 0,
+      message: '메세지'
+    }
+  },
+  created () {
 
+  },
+  mounted () {
+    setInterval(() => {
+      this.countDownTimer('04/01/2080 00:00 AM')
+    }, 1000)
+  },
 
-    computed: {
-      ...mapGetters(['menus']),
-      menus: {
-        get() {
-          return this.$store.getters.getTime;
-        }
+  computed: {
+    ...mapGetters(['menus']),
+    menus: {
+      get () {
+        return this.$store.getters.getTime
       }
+    }
+  },
+  methods: {
+    test () {
+      console.log('hh')
     },
-    methods: {
-        countDownTimer() {
-            if(this.countDown > 0) {
-                setTimeout(()=> {
-                    this.countDown -= 1
-                    this.countDownTimer()
-                }, 1000)
-            }
-        },
+    countDownTimer (date) {
+      console.log('실행', date)
+      const _vDate = new Date(date) // 전달 받은 일자
+      const _second = 1000
+      const _minute = _second * 60
+      const _hour = _minute * 60
+      const _day = _hour * 24
+      console.log('_vDate', _vDate)
+      let timer
 
+      const now = new Date()
+      const distDt = _vDate - now
+      if (distDt < 0) {
+        clearInterval(timer)
+        this.message = '해당 이벤트가 종료 되었습니다!'
+        return
+      }
 
-         // this.$refs.counttest.innerText = "hi"
+      const days = Math.floor(distDt / _day)
+      const hours = Math.floor((distDt % _day) / _hour)
+      const minutes = Math.floor((distDt % _hour) / _minute)
+      const seconds = Math.floor((distDt % _minute) / _second)
 
-          countDownTimer (date) {
-                let _vDate = new Date(date, id); // 전달 받은 일자
-                let _second = 1000;
-                let _minute = _second * 60;
-                let _hour = _minute * 60;
-                let _day = _hour * 24;
-                let timer;
-                function showRemaining() {
-                    let now = new Date();
-                    let distDt = _vDate - now;
-                    if (distDt < 0) {
-                      clearInterval(timer);
-                      this.$refs.countTest.innerText = '해당 이벤트가 종료 되었습니다!';
-                      return;
-                      }
-                    let days = Math.floor(distDt / _day);
-                    let hours = Math.floor((distDt % _day) / _hour);
-                    let minutes = Math.floor((distDt % _hour) / _minute);
-                    let seconds = Math.floor((distDt % _minute) / _second); //document.getElementById(id).textContent = date.toLocaleString() + "까지 : ";
+      console.log('days', days)
 
-                    id = days + '일 ';
-                    //this.$refs.counttest.innerText += hours + '시간 ';
-                    //this.$refs.counttest.innerText += minutes + '분 ';
-                    //this.$refs.counttest.innerText += seconds + '초';
-                  }
-                timer = setInterval(showRemaining, 1000);
+      this.day = days + '일'
+      this.hours = hours + '시간 '
+      this.minutes = minutes + '분'
+      this.seconds = seconds + '초'
 
-            }
-    },
+      // setInterval(this.showRemaining(_vDate, ), 1000)
+    }
+
+  }
 
 }
 </script>

@@ -1,25 +1,22 @@
 <template>
   <div class = "nav-contaier">
      <router-link class="link" :to="{ name: 'Home' }">mementomori</router-link>
-     {{this.$store.state.count.menus}}
   </div>
 </template>
 
 <script>
-import {mapActions} from 'vuex'
-import {mapState} from 'vuex'
+import { mapActions, mapState } from 'vuex'
 
 export default {
-  name: "navigation",
-  created() {
-        //this.countDownTimer();
-        this.$store.dispatch('getLife', /*100*/);
+  name: 'navigation',
+  created () {
+    this.$store.dispatch('getLife')
   },
   methods: {
-    ...mapActions(['getLife','test'])
+    ...mapActions(['getLife', 'test'])
   },
   state: {
-    ...mapState(['menus'])
+    ...mapState(['count'])
   }
 }
 </script>
@@ -36,7 +33,5 @@ export default {
   font-size: 1.7rem;
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
 }
-
-
 
 </style>
